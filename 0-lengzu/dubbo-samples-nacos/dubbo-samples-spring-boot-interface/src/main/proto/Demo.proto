@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// 和java_package保持一致，需要定位服务
+package org.apache.dubbo.springboot.demo;
+
+option java_multiple_files = true;
+option java_package = "org.apache.dubbo.springboot.demo";
+option java_outer_classname = "DemoProto";
+option objc_class_prefix = "DEMOSRV";
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayHelloReply {
+  string result = 1;
+}
+
+service DemoService {
+  rpc sayHello(SayHelloRequest) returns (SayHelloReply) {};
+}
